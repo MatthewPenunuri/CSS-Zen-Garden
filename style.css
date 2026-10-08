@@ -1,1 +1,48 @@
-/* Empty file for template. Remember to edit only this file and not the HTML file */
+body {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    background-image: url("Frutiger.png");
+    background-color: #fff;
+    background-size: cover;   /* Width: 1440px | Height: 1024px */
+    background-repeat: no-repeat;     /* Prevents the image from tiling */
+   }
+.paper-wrapper {
+    display: flex;
+    flex-wrap: row wrap;
+    
+
+}
+
+body {
+
+
+}
+
+h1 {
+    font-family: "Inria Serif";
+font-size: 64px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;background: conic-gradient(from 270deg at 50% 30%, #05F 90.61180114746094deg, #0FCDEA 180.4016876220703deg, #00BD3C 270.1915740966797deg, #8034A6 359.842586517334deg);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+}
+h3:first-of-type
+
+#zen-intro {
+border-radius: 65px;
+border: 3px solid #FFF;
+background: rgba(30, 15, 89, 0.05);
+backdrop-filter: blur(17.5px);
+
+}
+ 
+.main supporting {
+    background-color: #fff;
+    border: 20% transparent rgb(66, 66, 83);
+    border-radius: 2%;
+    
+}
