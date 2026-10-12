@@ -1,48 +1,250 @@
-body {
+/* --- 1. Global Setup & Frutiger Background --- */
+body#css-zen-garden {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url('frutiger.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+/* --- 2. Master Page Grid (Sidebar Left, Content Right) --- */
+.page-wrapper {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-areas: 
+        "sidebar zen-intro"
+        "sidebar main";
+    gap: 25px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* --- 3. Left Sidebar Capsule --- */
+.sidebar {
+    grid-area: sidebar;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
+    padding: 25px 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+}
+
+.sidebar h3 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 16px 0;
+    padding-left: 36px;
+    position: relative;
+    min-height: 28px;
     display: flex;
-    flex-flow: row wrap;
     align-items: center;
-    background-image: url("Frutiger.png");
-    background-color: #fff;
-    background-size: cover;   /* Width: 1440px | Height: 1024px */
-    background-repeat: no-repeat;     /* Prevents the image from tiling */
-   }
-.paper-wrapper {
-    display: flex;
-    flex-wrap: row wrap;
-    
-
 }
 
-body {
+/* My downloaded assets as vertical navigation icons bc I did the first part wrong  */
+.sidebar .design-selection li:nth-child(1)::before { background-image: url('fishbowl.png'); }
+.sidebar .design-selection li:nth-child(2)::before { background-image: url('blue-apple.png'); }
+.sidebar .design-selection li:nth-child(3)::before { background-image: url('4-leaf-clover.png'); }
+.sidebar .design-selection li:nth-child(4)::before { background-image: url('recycle.png'); }
+.sidebar .design-selection li:nth-child(5)::before { background-image: url('music.png'); }
+.sidebar .design-selection li:nth-child(6)::before { background-image: url('friends.png'); }
+.sidebar .design-selection li:nth-child(7)::before { background-image: url('settings-icon.png'); }
+.sidebar .design-selection li:nth-child(8)::before { background-image: url('dark-blue-star-globe.png'); }
 
-
+.sidebar li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-h1 {
-    font-family: "Inria Serif";
-font-size: 64px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;background: conic-gradient(from 270deg at 50% 30%, #05F 90.61180114746094deg, #0FCDEA 180.4016876220703deg, #00BD3C 270.1915740966797deg, #8034A6 359.842586517334deg);
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-
+.sidebar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
 }
-h3:first-of-type
 
+.sidebar a:hover {
+    text-decoration: underline;
+    color: #b3e0ff;
+}
+
+.sidebar .design-archives, .sidebar .zen-resources {
+    margin-top: 25px;
+}
+
+/* --- 4. Top Intro Banner Section (Fixed ID Selector & Gradient H1) --- */
 #zen-intro {
-border-radius: 65px;
-border: 3px solid #FFF;
-background: rgba(30, 15, 89, 0.05);
-backdrop-filter: blur(17.5px);
-
+    grid-area: zen-intro;
+    background: rgba(30, 15, 89, 0.15);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    border-radius: 45px;
+    padding: 35px 45px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    background-image: url('world-glass-globe.png');
+    background-repeat: no-repeat;
+    background-position: right 40px center;
+    background-size: 110px;
 }
- 
-.main supporting {
-    background-color: #fff;
-    border: 20% transparent rgb(66, 66, 83);
-    border-radius: 2%;
-    
+
+#zen-intro header h1 {
+    font-family: "Inria Serif", serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    background: conic-gradient(from 270deg at 50% 50%, #05F 90.61180114746094deg, #0FCDEA 180.4016876220703deg, #00BD3C 270.1915740966797deg, #8034A6 359.842586517334deg);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#zen-intro header h2 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- 5. Main Supporting Content Grid --- */
+.main.supporting {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+/* --- 6. Universal Glassmorphism Capsules (All Content Cards) --- */
+#zen-summary,
+#zen-preamble,
+#zen-explanation,
+#zen-participation,
+#zen-benefits,
+#zen-requirements {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 35px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    position: relative;
+}
+
+#zen-summary { grid-column: 1 / -1; }
+#zen-preamble { grid-column: 1 / -1; }
+
+#zen-explanation {
+    background-image: url('blue-apple.png');
+    background-repeat: no-repeat;
+    background-position: top 25px right 25px;
+    background-size: 32px;
+}
+
+#zen-participation {
+    grid-column: 1 / -1;
+    background-image: url('recycle.png');
+    background-repeat: no-repeat;
+    background-position: top 25px right 25px;
+    background-size: 32px;
+}
+
+#zen-benefits {
+    background-image: url('4-leaf-clover.png');
+    background-repeat: no-repeat;
+    background-position: top 25px right 25px;
+    background-size: 32px;
+}
+
+#zen-requirements {
+    grid-column: 1 / -1;
+    background-image: url('dark-blue-star-globe.png');
+    background-repeat: no-repeat;
+    background-position: top 25px right 25px;
+    background-size: 32px;
+}
+
+/* --- 7. Typography & Footer --- */
+h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 8px;
+    padding-right: 40px;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+a {
+    color: #b3e0ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    margin-top: 10px;
+}
+
+footer a {
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Hide legacy deco elements */
+.extra1, .extra2, .extra3, .extra4, .extra5, .extra6 {
+    display: none;
 }
